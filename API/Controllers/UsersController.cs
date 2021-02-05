@@ -22,12 +22,14 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
+            //we can use list but IEnumerable is more appropriate here
             return await _context.Users.ToListAsync();
         }
 
         [HttpGet("{id}")]
         public async Task< ActionResult<AppUser>> GetUser(int id)
         {
+            //to return single user
             return await _context.Users.FindAsync(id);
         }
     }
